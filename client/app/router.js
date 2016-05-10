@@ -17,7 +17,7 @@
     $stateProvider
       .state('app', {
         url: "/",
-        template: "<layout></layout>"
+        template: "<reddit-layout></reddit-layout>"
       });
   }
 
