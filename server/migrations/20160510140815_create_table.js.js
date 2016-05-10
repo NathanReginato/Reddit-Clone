@@ -8,7 +8,8 @@ exports.up = function(knex, Promise) {
     table.string('image_url');
     table.integer('votes');
   })
-  return knex.schema.createTable('reddit-comments', function (table) {
+
+  .createTable('reddit-comments', function (table) {
     table.increments();
     table.integer('post_id')
     table.string('author');

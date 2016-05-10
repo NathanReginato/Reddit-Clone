@@ -9,4 +9,10 @@ router.get('/v1/posts', function(req, res, next) {
   })
 });
 
+router.get('/v1/comment', function(req, res, next) {
+  knex('reddit-comments').then(function(comments){
+    res.json(comments)
+  })
+});
+
 module.exports = router;
