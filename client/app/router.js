@@ -17,7 +17,7 @@
     $stateProvider
       .state('app', {
         url: "/",
-        template: "<h1>Stuff</h1>"
+        template: "<layout></layout>"
       });
   }
 
