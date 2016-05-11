@@ -6,6 +6,7 @@
 
   function directive() {
     return {
+      scope: { },
       restrict: 'E',
       templateUrl: './app/layout/layout.directive.html'
     }

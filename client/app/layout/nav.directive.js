@@ -6,10 +6,11 @@
 
   function directive() {
     return {
+      scope: { },
       restrict: 'E',
       templateUrl: './app/layout/nav.directive.html',
       controller: function () {
-        console.log("I was called");
+        console.log("nav ctrl");
       }
     }
   }

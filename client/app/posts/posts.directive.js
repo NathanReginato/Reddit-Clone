@@ -23,7 +23,6 @@
     function activate() {
       postsService.get().then(function(posts) {
         vm.posts = posts;
-        console.log(vm.posts);
       })
     }
   }
