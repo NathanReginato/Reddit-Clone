@@ -15,7 +15,7 @@ router.get('/v1/posts', function(req, res, next) {
         comments.forEach(function(comment){
           if (comment.post_id === post.id) {
             cTemp.push(comment);
-          }
+          };
         });
         postObject.push({'post':pTemp, 'comment':cTemp});
       });
