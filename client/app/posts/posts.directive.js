@@ -6,9 +6,11 @@
 
   function directive() {
     return {
+      scope: { },
       restrict: 'E',
       templateUrl: './app/posts/posts.directive.html',
-      controller: controller
+      controller: controller,
+      controllerAs: 'vm'
     }
   }
 
@@ -21,6 +23,7 @@
     function activate() {
       postsService.get().then(function(posts) {
         vm.posts = posts;
+        console.log(vm.posts);
       })
     }
   }

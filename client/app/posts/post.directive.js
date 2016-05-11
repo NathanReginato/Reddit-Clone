@@ -6,12 +6,11 @@
 
   function directive() {
     return {
-      scope: { },
+      scope: {
+        post: '='
+      },
       restrict: 'E',
-      templateUrl: './app/posts/post.directive.html',
-      controller: function () {
-        console.log("I was called");
-      }
+      templateUrl: './app/posts/post.directive.html'
     }
   }
 

@@ -33,7 +33,14 @@ exports.seed = function(knex, Promise) {
       .insert({
         post_id: 2,
         author: "Cool Guy",
-        content: "Caddie Shack yeah!"
+        content: "Caddy Shack yeah!"
+      }),
+
+    knex('reddit-comments')
+      .insert({
+        post_id: 2,
+        author: "Wes Anderson",
+        content: "He's in all of his movies"
       })
   );
 };

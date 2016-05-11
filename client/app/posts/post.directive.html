@@ -1,1 +1,9 @@
-<h1>post</h1>
+<h1 ng-bind="post.post.title"></h1>
+<img src="{{post.post.image_url}}" alt="" style="height: 100px;">
+<p ng-bind="post.post.content"></p>
+<ul>
+  <li ng-repeat="comment in post.comment">
+    <h5 ng-bind="comment.author"></h5>
+    <p ng-bind="comment.content"></p>
+  </li>
+</ul>
