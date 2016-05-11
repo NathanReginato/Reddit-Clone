@@ -14,7 +14,6 @@
     function getPosts() {
       return $http.get('http://localhost:3000/api/v1/posts')
       .then(function(res) {
-        console.log('res');
         return res;
       })
     }
