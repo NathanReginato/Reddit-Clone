@@ -18,6 +18,10 @@
       .state('app', {
         url: "/",
         template: "<reddit-layout></reddit-layout>"
+      })
+      .state('auth', {
+        url: "/auth",
+        template: "<reddit-auth></reddit-auth>"
       });
   }
 
