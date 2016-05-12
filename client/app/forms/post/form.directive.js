@@ -14,12 +14,12 @@
     }
   }
 
-  controller.$inject = []
+  controller.$inject = ['newPostService']
 
-  function controller() {
+  function controller(newPostService) {
     var vm = this;
     vm.submitPost = function () {
-      console.log(vm.post);
+      newPostService.new(vm.post)
     }
   }
 

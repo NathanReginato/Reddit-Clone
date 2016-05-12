@@ -11,8 +11,9 @@
       new: newPost
     }
 
-    function newPost() {
-      return $http.post('http://localhost:3000/api/v1/posts', newObj)
+    function newPost(post) {
+      console.log(post);
+      return $http.post('http://localhost:3000/api/v1/posts')
       .then(function(res) {
         return res;
       })
