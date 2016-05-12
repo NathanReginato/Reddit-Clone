@@ -8,7 +8,18 @@
     return {
       scope: { },
       restrict: 'E',
-      templateUrl: './app/forms/post/form.directive.html'
+      templateUrl: './app/forms/post/form.directive.html',
+      controller: controller,
+      controllerAs: 'vm'
+    }
+  }
+
+  controller.$inject = []
+
+  function controller() {
+    var vm = this;
+    vm.submitPost = function () {
+      console.log(vm.post);
     }
   }
 
