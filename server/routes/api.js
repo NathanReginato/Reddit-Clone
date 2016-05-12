@@ -5,8 +5,10 @@ var knex = require('../db/knexconfig.js')
 
 /* GET users listing. */
 router.get('/v1/posts', function(req, res, next) {
-  knex('reddit-posts').then(function(posts){
-    return knex('reddit-comments').then(function(comments){
+  knex('reddit-posts')
+  .then(function(posts){
+    return knex('reddit-comments')
+    .then(function(comments){
       var postObject = [];
       posts.forEach(function(post){
         var pTemp;
@@ -25,9 +27,11 @@ router.get('/v1/posts', function(req, res, next) {
 });
 
 router.post('/v1/post', function(req, res, next) {
-  knex('reddit-posts').insert(req.body).returning('*').then(function(data) {
-    console.log(data);
-    res.send(data)
+  knex('reddit-posts')
+  .insert(req.body)
+  .returning('*')
+  .then(function(data) {
+    res.send(data[0])
   })
 });
 

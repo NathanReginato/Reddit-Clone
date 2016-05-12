@@ -11,9 +11,11 @@
       new: newPost
     }
 
-    function newPost(post) {
-      
-      return $http.post('http://localhost:3000/api/v1/post', post)
+    function newPost(formValues) {
+      var postObject = formValues;
+      postObject.date_time = new Date();
+      postObject.votes = 0;
+      return $http.post('http://localhost:3000/api/v1/post', postObject)
       .then(function(res) {
         console.log(res.data[0]);
       })
