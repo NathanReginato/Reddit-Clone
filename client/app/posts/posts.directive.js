@@ -14,15 +14,16 @@
     }
   }
 
-  controller.$inject = ['postsService']
+  controller.$inject = ['postsService', 'newPostService']
 
-  function controller(postsService) {
+  function controller(postsService, newPostService) {
     var vm = this;
+    vm.posts = [];
     activate();
 
     function activate() {
       postsService.get().then(function(posts) {
-        vm.posts = posts;
+        vm.posts = posts.data;
       })
     }
   }
