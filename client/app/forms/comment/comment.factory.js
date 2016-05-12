@@ -14,10 +14,8 @@
     function newComment(formValues, postId) {
       var commentObject = formValues;
       commentObject.post_id = postId;
-      console.log(commentObject);
       return $http.post('http://localhost:3000/api/v1/comment', commentObject)
       .then(function(res) {
-        console.log(res.data[0]);
       })
     }
   }
