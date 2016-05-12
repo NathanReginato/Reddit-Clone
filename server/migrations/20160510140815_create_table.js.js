@@ -15,7 +15,15 @@ exports.up = function(knex, Promise) {
     table.string('author');
     table.string('content');
   })
+
+  .createTable('reddit-users', function (table) {
+    table.increments();
+    table.string('user_name');
+    table.string('password');
+  })
 };
+
+
 
 exports.down = function(knex, Promise) {
   return knex.schema

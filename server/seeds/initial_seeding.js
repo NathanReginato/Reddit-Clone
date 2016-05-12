@@ -4,6 +4,7 @@ exports.seed = function(knex, Promise) {
     // Deletes ALL existing entries
     knex('reddit-posts').del(),
     knex('reddit-comments').del(),
+    knex('reddit-users').del(),
 
     // Inserts seed entries
     knex('reddit-posts')
@@ -25,6 +26,7 @@ exports.seed = function(knex, Promise) {
     knex('reddit-comments')
       .insert({
         post_id: 1,
+        user_id: 1,
         author: "Nate",
         content: "Best content"
       }),
@@ -32,6 +34,7 @@ exports.seed = function(knex, Promise) {
     knex('reddit-comments')
       .insert({
         post_id: 2,
+        user_id: 1,
         author: "Cool Guy",
         content: "Caddy Shack yeah!"
       }),
@@ -39,8 +42,15 @@ exports.seed = function(knex, Promise) {
     knex('reddit-comments')
       .insert({
         post_id: 2,
+        user_id: 1,
         author: "Wes Anderson",
         content: "He's in all of his movies"
+      }),
+
+    knex('reddit-users')
+      .insert({
+        user_name: "Nate",
+        password: "Pass"
       })
   );
 };
