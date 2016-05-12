@@ -24,4 +24,11 @@ router.get('/v1/posts', function(req, res, next) {
   });
 });
 
+router.post('/v1/post', function(req, res, next) {
+  knex('reddit-posts').insert(req.body).returning('*').then(function(data) {
+    console.log(data);
+    res.send(data)
+  })
+});
+
 module.exports = router;

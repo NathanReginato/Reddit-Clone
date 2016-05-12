@@ -12,10 +12,10 @@
     }
 
     function newPost(post) {
-      console.log(post);
-      return $http.post('http://localhost:3000/api/v1/posts')
+      
+      return $http.post('http://localhost:3000/api/v1/post', post)
       .then(function(res) {
-        return res;
+        console.log(res.data[0]);
       })
     }
   }
