@@ -4,7 +4,7 @@ var knex = require('../db/knexconfig.js')
 
 
 /* GET users listing. */
-router.get('/v1/posts', function(req, res, next) {
+router.get('/posts', function(req, res, next) {
   knex('reddit-posts')
   .then(function(posts){
     return knex('reddit-comments')
@@ -26,7 +26,7 @@ router.get('/v1/posts', function(req, res, next) {
   });
 });
 
-router.post('/v1/post', function(req, res, next) {
+router.post('/post', function(req, res, next) {
   knex('reddit-posts')
   .insert(req.body)
   .returning('*')
@@ -35,7 +35,7 @@ router.post('/v1/post', function(req, res, next) {
   })
 });
 
-router.post('/v1/comment', function(req, res, next) {
+router.post('/comment', function(req, res, next) {
   knex('reddit-comments')
   .insert(req.body)
   .returning('*')
