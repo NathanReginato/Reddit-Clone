@@ -14,12 +14,13 @@
     }
   }
 
-  controller.$inject = ['newPostService']
+  controller.$inject = ['authService']
 
-  function controller(newPostService) {
+  function controller(authService) {
     var vm = this;
-    vm.submitPost = function () {
-      newPostService.new(vm.post)
+    vm.signupSubmit = function () {
+      console.log('ctrl sign');
+      authService.signup(vm.signup)
     }
   }
 
