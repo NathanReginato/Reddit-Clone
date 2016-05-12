@@ -35,4 +35,13 @@ router.post('/v1/post', function(req, res, next) {
   })
 });
 
+router.post('/v1/comment', function(req, res, next) {
+  knex('reddit-comments')
+  .insert(req.body)
+  .returning('*')
+  .then(function(data) {
+    res.send(data[0])
+  })
+});
+
 module.exports = router;

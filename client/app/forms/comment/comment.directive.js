@@ -6,7 +6,10 @@
 
   function directive() {
     return {
-      scope: { },
+      scope: {
+        postid: '='
+      },
+      bindToController:true,
       restrict: 'E',
       templateUrl: './app/forms/comment/comment.directive.html',
       controller: controller,
@@ -19,7 +22,7 @@
   function controller(newCommentService) {
     var vm = this;
     vm.submitComment = function () {
-      newCommentService.new(vm.comment)
+      newCommentService.new(vm.comment, vm.postid)
     }
   }
 
