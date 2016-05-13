@@ -18,7 +18,7 @@ exports.up = function(knex, Promise) {
 
   .createTable('reddit-users', function (table) {
     table.increments();
-    table.string('user_name');
+    table.string('email');
     table.string('password');
   })
 };

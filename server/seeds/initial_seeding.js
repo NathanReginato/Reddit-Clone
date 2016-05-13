@@ -26,7 +26,6 @@ exports.seed = function(knex, Promise) {
     knex('reddit-comments')
       .insert({
         post_id: 1,
-        user_id: 1,
         author: "Nate",
         content: "Best content"
       }),
@@ -34,7 +33,6 @@ exports.seed = function(knex, Promise) {
     knex('reddit-comments')
       .insert({
         post_id: 2,
-        user_id: 1,
         author: "Cool Guy",
         content: "Caddy Shack yeah!"
       }),
@@ -42,14 +40,13 @@ exports.seed = function(knex, Promise) {
     knex('reddit-comments')
       .insert({
         post_id: 2,
-        user_id: 1,
         author: "Wes Anderson",
         content: "He's in all of his movies"
       }),
 
     knex('reddit-users')
       .insert({
-        user_name: "Nate",
+        email: "Nate",
         password: "Pass"
       })
   );

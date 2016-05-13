@@ -7,7 +7,9 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 
 var api = require('./routes/api');
-var auth = require('./routes/auth');
+var signup = require('./routes/auth/signup');
+// var login = require('./routes/auth/login');
+// var logout = require('./routes/auth/logout');
 
 var app = express();
 
@@ -22,6 +24,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1', api);
-app.use('/auth', auth);
+app.use('/api/v1', signup);
+// app.use('/api/v1', login);
+// app.use('/api/v1', logout);
 
 module.exports = app;
