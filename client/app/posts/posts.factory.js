@@ -20,7 +20,12 @@
     }
 
     function deleteComment(id) {
-      console.log('delete');
+      console.log(id);
+      var idObj = {id: id}
+      return $http.post('http://localhost:3000/api/v1/comment/delete', idObj)
+      .then(function(res){
+        return res;
+      })
     }
   }
 })();

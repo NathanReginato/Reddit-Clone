@@ -44,4 +44,14 @@ router.post('/comment', function(req, res, next) {
   })
 });
 
+router.post('/comment/delete', function(req, res, next) {
+  knex('reddit-comments')
+  .where('id', req.body.id)
+  .del()
+  .returning('*')
+  .then(function(data) {
+    res.send(data[0])
+  })
+})
+
 module.exports = router;

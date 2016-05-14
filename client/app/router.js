@@ -5,14 +5,16 @@
   .config(setupRoutes);
 
   setupRoutes.$inject = [
+    '$httpProvider',
     '$stateProvider',
     '$urlRouterProvider',
     '$locationProvider'
   ];
 
-  function setupRoutes($stateProvider, $urlRouterProvider, $locationProvider){
+  function setupRoutes($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider){
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/");
+    $httpProvider.interceptors.push("authInterceptor");
 
     $stateProvider
       .state('app', {
