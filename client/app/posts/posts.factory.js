@@ -8,7 +8,8 @@
 
   function factory ($http) {
     return {
-      get: getPosts
+      get: getPosts,
+      deleteComment: deleteComment
     }
 
     function getPosts() {
@@ -16,6 +17,10 @@
       .then(function(res) {
         return res;
       })
+    }
+
+    function deleteComment(id) {
+      console.log('delete');
     }
   }
 })();

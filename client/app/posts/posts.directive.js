@@ -19,6 +19,7 @@
   function controller(postsService, newPostService) {
     var vm = this;
     vm.posts = [];
+  
     activate();
 
     function activate() {
