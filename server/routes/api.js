@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db/knexconfig.js')
-
+var jwt = require('jsonwebtoken')
 
 /* GET users listing. */
 router.get('/posts', function(req, res, next) {
