@@ -5,10 +5,10 @@
   .config(setupRoutes);
 
   setupRoutes.$inject = [
-    '$httpProvider',
     '$stateProvider',
     '$urlRouterProvider',
-    '$locationProvider'
+    '$locationProvider',
+    '$httpProvider'
   ];
 
   function setupRoutes($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider){

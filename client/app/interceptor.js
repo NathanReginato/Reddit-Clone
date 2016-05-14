@@ -1,20 +1,13 @@
-angular.module('reddit')
-  .factory('authInterceptor', function ($location) {
-    return {
-      request: function(config) {
-        if (localStorage.getItem('token')) {
-          config.headers.Authorization = 'Bearer ' + localStorage.getItem('token');
-        }
+angular.module('reddit').factory('authInterceptor', function ($location) {
+  return {
+    request: function(config) {
+      console.log(config);
+      return config;
+    },
 
-        return config;
-      },
-
-      responseError: function(response) {
-        if (response.status == 403) {
-          localStorage.clear();
-          $location.path('/');
-        }
-        return response;
+    responseError: function(response) {
+      console.log(response);
+      return response;
       }
-    };
-  })
+    }
+  });
