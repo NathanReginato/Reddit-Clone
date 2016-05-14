@@ -4,9 +4,9 @@
   angular.module('reddit')
   .factory('authService', factory)
 
-  factory.$inject= ['$http'];
+  factory.$inject= ['$http', '$localStorage', '$state'];
 
-  function factory ($http) {
+  function factory ($http, $localStorage, $state) {
     return {
       signup: signup,
       login: login,
@@ -16,7 +16,9 @@
     function signup(formValues) {
       return $http.post('http://localhost:3000/api/v1/signup', formValues)
       .then(function(res) {
-
+        console.log(res);
+        $localStorage.$default({ token: res.data.token });
+        $state.go('app')
       })
     }
 

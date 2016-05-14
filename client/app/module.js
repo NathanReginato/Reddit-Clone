@@ -2,7 +2,7 @@
   'use strict'
 
   var dependencies = [
-    'ui.router'
+    'ui.router', 'ngStorage'
   ];
 
   angular.module('reddit', dependencies);
