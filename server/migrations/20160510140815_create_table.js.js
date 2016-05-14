@@ -2,6 +2,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('reddit-posts', function (table) {
     table.increments();
+    table.integer('user_id')
     table.string('title');
     table.string('content');
     table.string('date_time');
@@ -11,7 +12,8 @@ exports.up = function(knex, Promise) {
 
   .createTable('reddit-comments', function (table) {
     table.increments();
-    table.integer('post_id')
+    table.integer('user_id');
+    table.integer('post_id');
     table.string('author');
     table.string('content');
   })

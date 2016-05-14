@@ -9,6 +9,7 @@ exports.seed = function(knex, Promise) {
     // Inserts seed entries
     knex('reddit-posts')
       .insert({
+        user_id: 1,
         title: 'Awesome Post',
         content: 'The best content',
         date_time: '1234123412345',
@@ -17,6 +18,7 @@ exports.seed = function(knex, Promise) {
 
     knex('reddit-posts')
       .insert({
+        user_id: 1,
         title: 'Bill F**king Murray',
         content: 'It\'s Bill Murray, what more can I say.',
         date_time: '1234123412345',
@@ -26,6 +28,7 @@ exports.seed = function(knex, Promise) {
     knex('reddit-comments')
       .insert({
         post_id: 1,
+        user_id: 1,
         author: "Nate",
         content: "Best content"
       }),
@@ -33,6 +36,7 @@ exports.seed = function(knex, Promise) {
     knex('reddit-comments')
       .insert({
         post_id: 2,
+        user_id: 1,
         author: "Cool Guy",
         content: "Caddy Shack yeah!"
       }),
@@ -40,6 +44,7 @@ exports.seed = function(knex, Promise) {
     knex('reddit-comments')
       .insert({
         post_id: 2,
+        user_id: 1,
         author: "Wes Anderson",
         content: "He's in all of his movies"
       }),
