@@ -1,12 +1,18 @@
-angular.module('reddit').factory('authInterceptor', function ($location) {
+angular.module('reddit')
+.factory('authInterceptor', function ($location, $localStorage) {
   return {
     request: function(config) {
-      console.log(config);
+      if ($localStorage.token) {
+        config.headers.Authorization = 'Bearer ' + localStorage.token;
+      }
       return config;
     },
 
     responseError: function(response) {
-      console.log(response);
+      if (response.status == 403) {
+        $localStorage.$reset();
+        $state.go('auth');
+      }
       return response;
       }
     }

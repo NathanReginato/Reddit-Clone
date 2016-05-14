@@ -45,13 +45,23 @@ router.post('/comment', function(req, res, next) {
 });
 
 router.post('/comment/delete', function(req, res, next) {
+  if (req.headers.authorization) {
+    const token = req.headers.authorization.split(' ')[1];
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    // payload is {id: 56}
   knex('reddit-comments')
-  .where('id', req.body.id)
-  .del()
-  .returning('*')
-  .then(function(data) {
-    res.send(data[0])
-  })
+    .where('id', req.body.id)
+    .del()
+    .returning('*')
+    .then(function(data) {
+      res.send(data[0])
+    })
+  } else {
+    res.status(403).json({
+      error: "No token"
+    })
+  }
+
 })
 
 module.exports = router;
