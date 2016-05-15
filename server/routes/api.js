@@ -38,8 +38,10 @@ router.post('/post', authorization, function(req, res, next) {
 });
 
 router.post('/comment', authorization, function(req, res, next) {
+  const comment_insert = req.body
+  comment_insert.user_id = req.user_id
   knex('reddit-comments')
-  .insert(req.body)
+  .insert(comment_insert)
   .returning('*')
   .then(function(data) {
     res.send(data[0])
@@ -47,13 +49,22 @@ router.post('/comment', authorization, function(req, res, next) {
 });
 
 router.post('/comment/delete', authorization, function(req, res, next) {
-  knex('reddit-comments')
+  if (req.body.id) {
+    knex('reddit-comments')
     .where('id', req.body.id)
-    .del()
-    .returning('*')
-    .then(function(data) {
-      res.send(data[0])
+    .first()
+    .then(function(comment){
+      if (comment.user_id === req.user_id) {
+        knex('reddit-comments')
+          .where('id', req.body.id)
+          .del()
+          .returning('*')
+          .then(function(data) {
+            res.json(data)
+          })
+      }
     })
+  }
 })
 
 router.post('/post/delete', authorization, function(req, res, next) {
@@ -73,7 +84,7 @@ router.post('/post/delete', authorization, function(req, res, next) {
               .del()
               .returning('*')
               .then(function(comments) {
-                res.json(postDeleted)
+                res.json(postDeleted[0])
               })
           })
       }
