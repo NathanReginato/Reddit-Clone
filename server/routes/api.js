@@ -26,7 +26,7 @@ router.get('/posts', function(req, res, next) {
   });
 });
 
-router.post('/post', function(req, res, next) {
+router.post('/post', authorization, function(req, res, next) {
   knex('reddit-posts')
   .insert(req.body)
   .returning('*')
@@ -35,7 +35,7 @@ router.post('/post', function(req, res, next) {
   })
 });
 
-router.post('/comment', function(req, res, next) {
+router.post('/comment', authorization, function(req, res, next) {
   knex('reddit-comments')
   .insert(req.body)
   .returning('*')
