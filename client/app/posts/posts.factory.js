@@ -9,7 +9,8 @@
   function factory ($http) {
     return {
       get: getPosts,
-      deleteComment: deleteComment
+      deleteComment: deleteComment,
+      deletePost: deletePost
     }
 
     function getPosts() {
@@ -22,6 +23,14 @@
     function deleteComment(id) {
       var idObj = {id: id}
       return $http.post('http://localhost:3000/api/v1/comment/delete', idObj)
+      .then(function(res){
+        return res;
+      })
+    }
+
+    function deletePost(id) {
+      var idObj = {id: id}
+      return $http.post('http://localhost:3000/api/v1/post/delete', idObj)
       .then(function(res){
         return res;
       })

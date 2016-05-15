@@ -27,8 +27,10 @@ router.get('/posts', function(req, res, next) {
 });
 
 router.post('/post', authorization, function(req, res, next) {
+  const post_insert = req.body
+  post_insert.user_id = req.user_id
   knex('reddit-posts')
-  .insert(req.body)
+  .insert(post_insert)
   .returning('*')
   .then(function(data) {
     res.send(data[0])
@@ -54,10 +56,36 @@ router.post('/comment/delete', authorization, function(req, res, next) {
     })
 })
 
+router.post('/post/delete', authorization, function(req, res, next) {
+  if (req.body.id) {
+    knex('reddit-posts')
+    .where('id', req.body.id)
+    .first()
+    .then(function(post){
+      if (post.user_id === req.user_id) {
+        knex('reddit-posts')
+          .where('id', req.body.id)
+          .del()
+          .returning('*')
+          .then(function(postDeleted) {
+            knex('reddit-comments')
+              .where('post_id', postDeleted[0].id)
+              .del()
+              .returning('*')
+              .then(function(comments) {
+                res.json(postDeleted)
+              })
+          })
+      }
+    })
+  }
+})
+
 function authorization(req, res, next) {
   if (req.headers.authorization) {
     const token = req.headers.authorization.split(' ')[1];
     const payload = jwt.verify(token, process.env.JWT_SECRET);
+    req.user_id = payload.id;
 
     next()
 

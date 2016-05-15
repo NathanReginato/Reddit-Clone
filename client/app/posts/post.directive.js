@@ -22,8 +22,11 @@
     var vm = this;
     vm.posts = [];
     vm.deleteComment = function(comment_id) {
-      console.log('call delete');
       postsService.deleteComment(comment_id)
+    }
+
+    vm.deletePost = function(post_id) {
+      postsService.deletePost(post_id)
     }
   }
 })();
