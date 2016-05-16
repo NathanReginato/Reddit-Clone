@@ -16,6 +16,7 @@
       commentObject.post_id = postId;
       return $http.post('http://localhost:3000/api/v1/comment', commentObject)
       .then(function(res) {
+        
       })
     }
   }

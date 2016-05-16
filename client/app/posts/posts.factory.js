@@ -7,24 +7,32 @@
   factory.$inject= ['$http'];
 
   function factory ($http) {
+    var _posts = [];
+
     return {
       get: getPosts,
       deleteComment: deleteComment,
-      deletePost: deletePost
+      deletePost: deletePost,
+      setPosts: setPosts
     }
 
     function getPosts() {
       return $http.get('http://localhost:3000/api/v1/posts')
       .then(function(res) {
-        return res;
+        _posts = res.data
+        return _posts
       })
+    }
+
+    function setPosts(post) {
+      console.log(post)
+      _posts.push(post)
     }
 
     function deleteComment(id) {
       var idObj = {id: id}
       return $http.post('http://localhost:3000/api/v1/comment/delete', idObj)
       .then(function(res){
-        console.log(res);
         return res;
       })
     }
@@ -33,7 +41,6 @@
       var idObj = {id: id}
       return $http.post('http://localhost:3000/api/v1/post/delete', idObj)
       .then(function(res){
-        console.log(res);
         return res;
       })
     }

@@ -4,9 +4,9 @@
   angular.module('reddit')
   .factory('newPostService', factory)
 
-  factory.$inject= ['$http'];
+  factory.$inject= ['$http', 'postsService'];
 
-  function factory ($http) {
+  function factory ($http, postsService) {
     return {
       new: newPost
     }
@@ -17,7 +17,7 @@
       postObject.votes = 0;
       return $http.post('http://localhost:3000/api/v1/post', postObject)
       .then(function(res) {
-        console.log(res.data[0]);
+        postsService.setPosts(res.data)
       })
     }
   }

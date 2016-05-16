@@ -18,14 +18,8 @@
 
   function controller(postsService, newPostService) {
     var vm = this;
-    vm.posts = [];
-
-    activate();
-
-    function activate() {
-      postsService.get().then(function() {
-        vm.posts = postsService.postObject
-      })
-    }
+    postsService.get().then(function(posts){
+      vm.posts = posts
+    })
   }
 })();
