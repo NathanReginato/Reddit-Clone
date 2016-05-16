@@ -14,12 +14,19 @@
     }
   }
 
-  controller.$inject = ['postsService', 'newPostService']
+  controller.$inject = ['postsService', 'newPostService', '$scope'];
 
-  function controller(postsService, newPostService) {
+  function controller(postsService, newPostService, $scope) {
     var vm = this;
     postsService.get().then(function(posts){
       vm.posts = posts
     })
+
+     $scope.$watch(function(){
+       return postsService.getCurrentPosts();
+     }, function(newValue){
+         vm.posts = newVal;
+     });
+
   }
 })();

@@ -26,7 +26,11 @@
 
     function setPosts(post) {
       console.log(post)
-      _posts.push(post)
+      _posts.push(post);
+    }
+
+    function getCurrentPosts(){
+      return _posts.slice();
     }
 
     function deleteComment(id) {
