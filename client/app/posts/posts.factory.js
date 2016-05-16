@@ -25,8 +25,11 @@
     }
 
     function setPosts(post) {
-      console.log(post)
-      _posts.push(post);
+      var postObj = {
+        post: post,
+        comment: []
+      }
+      _posts.push(postObj)
     }
 
     function getCurrentPosts(){
