@@ -2,13 +2,7 @@
 <img src="{{post.post.image_url}}" alt="" style="height: 100px;">
 <p ng-bind="post.post.content"></p>
 <div ng-if="vm.showComments" class="animate-if">
-  <ul>
-    <li ng-repeat="comment in post.comment">
-      <h5 ng-bind="comment.author"></h5>
-      <p ng-bind="comment.content"></p>
-      <a href="" ng-click="vm.deleteComment(comment.id)"><span class="ion-close"></span></a>
-    </li>
-  </ul>
+  <reddit-comment comment="post.comment"></reddit-comment>
 </div>
 <a href="" ng-click="vm.deletePost(post.post.id)"><span class="ion-close"></span></a>
 <a href="" ng-click="vm.showForm=!vm.showForm">New Comment</a>

@@ -23,10 +23,7 @@
     vm.posts = [];
     vm.showForm = false;
     vm.showComments = false;
-    vm.deleteComment = function(comment_id) {
-      postsService.deleteComment(comment_id)
-    }
-
+    
     vm.deletePost = function(post_id) {
       postsService.deletePost(post_id)
     }

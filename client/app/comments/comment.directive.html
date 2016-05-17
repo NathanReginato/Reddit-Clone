@@ -1,0 +1,7 @@
+<ul>
+  <li ng-repeat="comment in vm.comment">
+    <h5 ng-bind="comment.author"></h5>
+    <p ng-bind="comment.content"></p>
+    <a href="" ng-click="vm.deleteComment(comment.id)"><span class="ion-close"></span></a>
+  </li>
+</ul>
