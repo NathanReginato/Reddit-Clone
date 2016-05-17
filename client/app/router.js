@@ -23,7 +23,8 @@
       })
       .state('auth', {
         url: "/auth",
-        template: "<reddit-auth></reddit-auth>"
+        template: "<reddit-auth></reddit-auth>",
+        loggedIn: true
       });
   }
 
