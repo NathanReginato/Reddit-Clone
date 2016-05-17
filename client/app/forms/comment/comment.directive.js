@@ -7,7 +7,8 @@
   function directive() {
     return {
       scope: {
-        postid: '='
+        postid: '=',
+        showform: '='
       },
       bindToController:true,
       restrict: 'E',
@@ -23,6 +24,7 @@
     var vm = this;
     vm.submitComment = function () {
       newCommentService.new(vm.comment, vm.postid)
+      vm.showform = false
     }
   }
 

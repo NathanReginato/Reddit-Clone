@@ -20,6 +20,7 @@
 
   function controller(postsService, newPostService) {
     var vm = this;
+    vm.showForm = false;
     vm.posts = [];
     vm.deleteComment = function(comment_id) {
       postsService.deleteComment(comment_id)
