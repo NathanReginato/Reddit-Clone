@@ -6,5 +6,3 @@ angular.module('reddit')
       }
     })
 });
-
-// toState.module === 'auth' &&
