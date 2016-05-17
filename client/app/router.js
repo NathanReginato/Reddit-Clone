@@ -24,7 +24,7 @@
       .state('auth', {
         url: "/auth",
         template: "<reddit-auth></reddit-auth>",
-        loggedIn: true
+        module: 'auth'
       });
   }
 
