@@ -10,6 +10,6 @@
 </ul>
 <a href="" ng-click="vm.deletePost(post.post.id)"><span class="ion-close"></span></a>
 <a href="" ng-click="vm.showForm=!vm.showForm">Comment</a>
-<div ng-show="vm.showForm">
+<div ng-if="vm.showForm">
   <comment-form postid="post.post.id" showform="vm.showForm"></comment-form>
 </div>
