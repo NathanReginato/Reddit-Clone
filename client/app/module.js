@@ -2,7 +2,7 @@
   'use strict'
 
   var dependencies = [
-    'ui.router', 'ngStorage'
+    'ui.router', 'ngStorage', 'ngAnimate'
   ];
 
   angular.module('reddit', dependencies);

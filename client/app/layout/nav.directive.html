@@ -10,6 +10,6 @@
   <!-- <a ng-click="vm.logout()">+ Logout</a> -->
   <a href="" ng-click="vm.showForm=!vm.showForm">New Post</a>
 </nav>
-<div ng-if="vm.showForm">
+<div ng-if="vm.showForm" class="animate-if">
   <post-form showform="vm.showForm"></post-form>
 </div>
