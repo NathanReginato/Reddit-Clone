@@ -19,7 +19,12 @@
     $stateProvider
       .state('app', {
         url: "/",
-        template: "<reddit-layout></reddit-layout>"
+        template: "<reddit-layout></reddit-layout>",
+        resolve:{
+          simpleObj: function(){
+            return {value: 'simple!'};
+         },
+        }
       })
       .state('auth', {
         url: "/auth",
