@@ -1,15 +1,18 @@
 <h1 ng-bind="post.post.title"></h1>
 <img src="{{post.post.image_url}}" alt="" style="height: 100px;">
 <p ng-bind="post.post.content"></p>
-<ul>
-  <li ng-repeat="comment in post.comment">
-    <h5 ng-bind="comment.author"></h5>
-    <p ng-bind="comment.content"></p>
-    <a href="" ng-click="vm.deleteComment(comment.id)"><span class="ion-close"></span></a>
-  </li>
-</ul>
+<div ng-if="vm.showComments">
+  <ul>
+    <li ng-repeat="comment in post.comment">
+      <h5 ng-bind="comment.author"></h5>
+      <p ng-bind="comment.content"></p>
+      <a href="" ng-click="vm.deleteComment(comment.id)"><span class="ion-close"></span></a>
+    </li>
+  </ul>
+</div>
 <a href="" ng-click="vm.deletePost(post.post.id)"><span class="ion-close"></span></a>
-<a href="" ng-click="vm.showForm=!vm.showForm">Comment</a>
+<a href="" ng-click="vm.showForm=!vm.showForm">New Comment</a>
+<a href="" ng-click="vm.showComments=!vm.showComments">Comments</a>
 <div ng-if="vm.showForm">
   <comment-form postid="post.post.id" showform="vm.showForm"></comment-form>
 </div>
