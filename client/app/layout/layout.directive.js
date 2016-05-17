@@ -14,11 +14,9 @@
     }
   }
 
-  controller.$inject = ['$scope', 'simpleObj']
+  controller.$inject = ['$scope']
 
-  function controller($scope, simpleObj) {
-    console.log($scope.simpleObj);
-    vm.currentUser = simpleObj
+  function controller($scope) {
   }
 
 })();

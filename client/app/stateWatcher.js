@@ -1,11 +1,10 @@
-angular.module('reddit').run(function ($rootScope, $state, $localStorage) {
+angular.module('reddit')
+  .run(function ($rootScope, $state, $localStorage) {
   $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
-    console.log('state change');
-    if (!$localStorage.token) {
+      if ($localStorage.token && fromState.name === 'app') {
         e.preventDefault();
-        $state.go('app');
-    }
-  });
+      }
+    })
 });
 
 // toState.module === 'auth' &&
