@@ -8,7 +8,7 @@ function formValidation(req, res, next) {
   if (!req.body.password || !req.body.password.trim()) errors.push("Password can't be blank");
 
   if (errors.length) {
-    res.status(422).json({
+    res.status(422).send({
       errors: errors
     })
   } else {

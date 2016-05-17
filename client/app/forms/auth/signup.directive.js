@@ -19,9 +19,7 @@
   function controller(authService) {
     var vm = this;
     vm.signupSubmit = function () {
-      console.log('ctrl sign');
       authService.signup(vm.signup)
     }
   }
-
 })();

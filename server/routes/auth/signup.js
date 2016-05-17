@@ -35,7 +35,7 @@ function insertUser(req, res, next) {
               })
           })
         } else {
-          res.status(422).json({
+          res.status(400).send({
             errors: ["Email has already been taken"]
           })
         }
