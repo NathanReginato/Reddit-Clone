@@ -10,7 +10,7 @@
         postid: '=',
         showform: '='
       },
-      bindToController:true,
+      bindToController: true,
       restrict: 'E',
       templateUrl: './app/forms/comment/comment.directive.html',
       controller: controller,

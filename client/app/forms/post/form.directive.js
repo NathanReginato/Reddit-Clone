@@ -6,7 +6,10 @@
 
   function directive() {
     return {
-      scope: { },
+      scope: {
+        showform: '='
+      },
+      bindToController: true,
       restrict: 'E',
       templateUrl: './app/forms/post/form.directive.html',
       controller: controller,
@@ -20,6 +23,7 @@
     var vm = this;
     vm.submitPost = function () {
       newPostService.new(vm.post)
+      vm.showform = false;
     }
   }
 

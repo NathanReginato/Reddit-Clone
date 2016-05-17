@@ -10,7 +10,8 @@
       restrict: 'E',
       templateUrl: './app/layout/nav.directive.html',
       controller: function () {
-        console.log("nav ctrl");
+        var vm = this;
+        vm.showForm = false;
       }
     }
   }

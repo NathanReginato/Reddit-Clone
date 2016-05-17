@@ -8,5 +8,8 @@
   </div>
   <a href="" ui-sref="auth">+ Login</a>
   <!-- <a ng-click="vm.logout()">+ Logout</a> -->
+  <a href="" ng-click="vm.showForm=!vm.showForm">New Post</a>
 </nav>
-<post-form></post-form>
+<div ng-if="vm.showForm">
+  <post-form showform="vm.showForm"></post-form>
+</div>
