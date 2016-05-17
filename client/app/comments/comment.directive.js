@@ -17,11 +17,10 @@
     }
   }
 
-  controller.$inject = ['postsService', 'newPostService']
+  controller.$inject = ['postsService']
 
   function controller(postsService) {
     var vm = this;
-    console.log(vm.comment);
     vm.deleteComment = function(comment_id) {
       postsService.deleteComment(comment_id)
     }
