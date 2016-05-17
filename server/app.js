@@ -8,8 +8,8 @@ var cors = require('cors');
 
 var api = require('./routes/api');
 var signup = require('./routes/auth/signup');
-// var login = require('./routes/auth/login');
-// var logout = require('./routes/auth/logout');
+var login = require('./routes/auth/login');
+
 
 var app = express();
 
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/v1', api);
 app.use('/api/v1', signup);
-// app.use('/api/v1', login);
-// app.use('/api/v1', logout);
+app.use('/api/v1', login);
+
 
 module.exports = app;
